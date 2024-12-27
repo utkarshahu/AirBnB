@@ -39,20 +39,6 @@ module.exports.isOwner = async (req, res, next) =>{
     next();
 }
 
-// module.exports.isOwner=async(req, res, next)=>{
-//   let {id}=req.params;
-//   let listing=await Listing.findById(id);
-//   if (!listing) {
-//         req.flash("error", "Listing not found.");
-//         return res.redirect('/listings');
-//   }
-//   if (!res.locals.currentUser || !listing.owner._id.equals(res.locals.currentUser._id)) {
-//         req.flash("error", "You do not have permission to do that.");
-//         return res.redirect(`/listings/${id}`);
-//   }
-//   next();
-// }
-
 
 module.exports.validateListing = (req,res,next) =>{
     let {error} =listingSchema.validate(req.body);
